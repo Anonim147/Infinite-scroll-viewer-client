@@ -10,11 +10,11 @@ $red: #B05F6D;
 $violet:#462446;
 $white:#fff;
 
-*{
+* {
   font-family: 'Roboto', sans-serif;
 }
 
-#root{
+#root {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -23,7 +23,7 @@ $white:#fff;
 .App {
   width: 100%;
   height: 100%;
-  top:0;
+  top: 0;
   position: fixed;
   display: flex;
   align-items: center;
@@ -33,79 +33,95 @@ $white:#fff;
   min-width: 600px;
 }
 
-button, input{
+button,
+input {
   outline: none;
   cursor: pointer;
 }
 
 
 
-.lime_button{
+.lime_button {
   background-color: $white;
   color: $lime;
   border: none;
   border-radius: 5px;
   transition: all ease 0.5s;
 
-  &:hover{
-      background-color: $lime;
-      color: $white;
+  &:hover {
+    background-color: $lime;
+    color: $white;
   }
 }
 
-.red_button{
+.red_button {
   background-color: $white;
   color: $red;
   border: none;
   border-radius: 5px;
   transition: all ease 0.5s;
 
-  &:hover{
-      background-color: $red;
-      color: $white;
+  &:hover {
+    background-color: $red;
+    color: $white;
   }
 }
 
-.orange_button{
+.orange_button {
   background-color: $white;
   color: $orange;
   border: none;
   border-radius: 5px;
   transition: all ease 0.5s;
 
-  &:hover{
-      background-color: $orange;
-      color: $white;
+  &:hover {
+    background-color: $orange;
+    color: $white;
   }
 }
 
-.violet_button{
+.violet_button {
   background-color: $white;
   color: $violet;
   border: none;
   border-radius: 5px;
   transition: all ease 0.5s;
 
-  &:hover{
-      background-color: $violet;
-      color: $white;
+  &:hover {
+    background-color: $violet;
+    color: $white;
   }
 }
 
-.yellow_button{
+.yellow_button {
   background-color: $white;
   color: $yellow;
   border: none;
   border-radius: 5px;
   transition: all ease 0.5s;
 
-  &:hover{
-      background-color: $yellow;
-      color: $white;
+  &:hover {
+    background-color: $yellow;
+    color: $white;
   }
 }
 
 ::-webkit-scrollbar {
-  width: 0px;  
-  background: transparent;  
+  width: 0px;
+  background: transparent;
+}
+
+.animated {
+  animation: slide-up 0.5s ease;
+
+  @keyframes slide-up {
+      0% {
+          opacity: 0;
+          transform: translateY(20px);
+      }
+      100% {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
 }

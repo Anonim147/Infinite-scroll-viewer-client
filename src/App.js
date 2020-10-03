@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.scss';
 import { Route, Switch } from 'react-router';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import MainContent from './components/MainContent';
 import Image from './components/Image';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
+
 
 const App = () => {
   return (

@@ -7,7 +7,7 @@ const SearchBar = (props) => {
     const[searchValue, setSearchValue] = useState('');
     return (
 
-        <div className="SearchBar">
+        <div className="SearchBar animated">
             <form onSubmit={e => { e.preventDefault(); props.changeHandler(searchValue);}}>
                 <input 
                     className="search_input" 

@@ -37,7 +37,6 @@ const Image = (props) => {
     const { addToast } = useToasts();
 
     useEffect(() => {
-        console.log('useEffect');
         if(image_from_parent){
             setState(({
                     image:image_from_parent,
@@ -88,7 +87,7 @@ const Image = (props) => {
           console.log(navigator.canShare());
           //await navigator.share({image: image.urls.full});
     }
-    return (<div className="Image">
+    return (<div className="Image animated">
 
         <button className="red_button" onClick={() => props.history.push('/')}>Go back</button>
 

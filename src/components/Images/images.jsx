@@ -9,7 +9,7 @@ const Images = (props) => {
             {props.images.length > 0 ?
             props.images.map((image, index) => 
                 <div key={index}
-                    className="image_container"
+                    className="image_container animated"
                     onClick={()=>props.history.push({pathname: `/${image.id}`, state:{image:image}})}>
                     <img src={image.urls.small} alt={image.alt_description} />
                 </div>
