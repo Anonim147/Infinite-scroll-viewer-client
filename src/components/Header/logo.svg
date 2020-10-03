@@ -1,0 +1,16 @@
+<svg width="230" height="75" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="77" width="232" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text style="cursor: move;" stroke="#000" transform="matrix(1.0323069095611572,0,0,1.0513644218444824,-0.09692072868347168,-0.1974319964647293) " font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="52" id="svg_1" y="45.34313" x="2.04066" stroke-width="0" fill="#b05f6d">INFINITE</text>
+  <text stroke="#000" transform="matrix(1.020862708728103,0,0,1,4.29175512623092,0) " font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="18" id="svg_2" y="70.05" x="-0.26157" stroke-width="0" fill="#b05f6d">SCROLL IMAGE VIEWER</text>
+ </g>
+</svg>
