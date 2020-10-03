@@ -1,0 +1,42 @@
+.Images {
+    width: 90%;
+    height: 80%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .image_container {
+        height: 200px;
+        margin: 7px;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+
+        &:hover{
+            transform: scale(1.07);
+        }
+
+        transition: all ease 0.5s;
+
+        img {
+            border-radius: 2px;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        animation: slide-up 0.5s ease;
+
+        @keyframes slide-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+
+}

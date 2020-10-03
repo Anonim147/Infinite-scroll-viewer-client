@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Route, Switch } from 'react-router';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-function App() {
+import MainContent from './components/MainContent';
+import Image from './components/Image';
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Switch> 
+        <Route path='/' component={MainContent} exact />
+        {<Route path='/:id' render={({ match }) => {
+          const { id } = match.params;
+          return <Image id={id} />;
+        }} />}
+      </Switch>
+      <Footer />
     </div>
   );
 }

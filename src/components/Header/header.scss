@@ -1,0 +1,23 @@
+$lime: #47B39D;
+$orange: #EB6B56;
+$yellow: #FFC153;
+$red: #B05F6D;
+$violet:#462446;
+$white:#fff;
+
+.Header {
+    position: fixed;
+    top:0;
+    background-color: $red;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .logo{
+        h2{
+            margin: 5px 0px 5px 0px;
+            text-transform: uppercase;
+            color: #fff;
+            font-family: 'Lato', sans-serif !important;
+        }
+    }
+}
