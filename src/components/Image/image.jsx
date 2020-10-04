@@ -83,7 +83,7 @@ const Image = (props) => {
         addToast("Copied to clipboard!", {
             appearance: 'info',
             autoDismiss: true,
-          })
+        });
     }
 
     return (<div className="Image animated">
