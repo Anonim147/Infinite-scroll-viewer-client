@@ -1,4 +1,4 @@
-import React, { useEffect, useImperativeHandle, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withApollo } from "react-apollo";
 import gql from 'graphql-tag';
 import { Spinner } from 'react-rainbow-components';
@@ -8,8 +8,8 @@ import Images from '../Images';
 
 import './main-content.scss';
 import ErrorComponent from '../ErrorComponent';
-import Header from '../Header';
-import Footer from '../Footer';
+
+import './main-content.scss';
 
 const GET_IMAGES_QUERY = gql`
 query GetImagesQuery($page:Int, $query:String) {
@@ -85,7 +85,7 @@ const MainContent = (props) => {
 
 
     return (
-        <>
+        <div className="MainContent">
             <SearchBar changeHandler={changeHandler} />
             {
                 loading
@@ -94,7 +94,7 @@ const MainContent = (props) => {
                         ? <ErrorComponent />
                         : <Images images={images} scrollHandler={scrollHandler} />
             }
-        </>
+        </div>
     )
 }
 

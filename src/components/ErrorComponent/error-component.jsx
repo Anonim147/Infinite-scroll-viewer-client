@@ -5,7 +5,7 @@ import './error-component.scss';
 
 const ErrorComponent = (props) =>
     <div className="ErrorComponent">
-        <div className="image_container">
+        <div className="image_error_container">
             <img src={error} alt="Error!" />
         </div>
         <div className="text_container">

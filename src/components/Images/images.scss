@@ -10,8 +10,7 @@
         height: 200px;
         margin: 7px;
         cursor: pointer;
-        box-shadow: 0 0 10px rgba(0,0,0,0.5);
-
+        box-shadow: 0 0 10px #00000080;
 
         &:hover{
             transform: scale(1.07);
@@ -24,5 +23,12 @@
             height: 100%;
             object-fit: contain;
         }
+    }
+}
+
+@media(max-width:660px)
+{
+    .Images{
+        height: 70%;
     }
 }

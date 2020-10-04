@@ -5,71 +5,64 @@ $red: #B05F6D;
 $violet:#462446;
 $white:#fff;
 
-.Image{
+.Image {
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    padding: 20px;
     width: 80%;
     height: 100%;
     width: 90%;
-    &>button{
+    margin-top: 4.3rem;
+
+    &>button {
         width: 120px;
         height: 30px;
     }
 
-    animation: slide-up 0.5s ease;
-
-        @keyframes slide-up {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-    margin-top: 3.1rem;
-
-    .image_container{
+    .image_container {
         margin: 10px 0px 10px 0px;
         display: flex;
         justify-content: center;
-        height: 65%;
-        img{
+        height: 67%;
+
+        img {
             height: 100%;
             border-radius: 2px;
             object-fit: contain;
         }
     }
-    .image_info{
+
+    .image_info {
         display: flex;
         justify-content: space-between;
 
-        .image_details{
+        .image_details {
             width: 60%;
-            h2{
-            text-overflow: ellipsis; 
-            overflow: hidden;   
-            white-space: nowrap;
+
+            h2 {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
                 margin: 0;
                 margin-bottom: 5px;
-                color:$orange;
-                text-transform: uppercase;                
+                color: $orange;
+                text-transform: uppercase;
             }
-            p{
+
+            p {
                 margin: 4px;
                 color: #6e6e6e;
             }
         }
-        .image_actions{
+
+        .image_actions {
             width: 20%;
             display: flex;
+            align-items: flex-end;
             flex-direction: column;
             justify-content: space-between;
 
-            button{
+            button {
                 height: 35px;
                 width: 200px;
             }
@@ -77,3 +70,41 @@ $white:#fff;
     }
 }
 
+@media(max-width:660px) {
+    .Image {
+        .image_container {
+            height: 65%;
+        }
+
+        .image_info {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h2 {
+                font-size: 15px;
+                text-align: center;
+            }
+
+            p {
+                font-size: 10px;
+                text-align: center;
+            }
+
+
+            .image_details {
+                width: 100%;
+            }
+
+            .image_actions {
+                flex-direction: row;
+                justify-content: center;
+
+                button {
+                    height: 25px;
+                }
+            }
+        }
+    }
+}

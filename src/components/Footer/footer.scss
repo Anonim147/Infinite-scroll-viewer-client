@@ -38,3 +38,11 @@ $white:#fff;
 
     }
 }
+
+@media(max-width:660px) {
+    .Footer{
+        width:100%;
+        flex-direction: column;
+        align-items: center;
+    }
+}

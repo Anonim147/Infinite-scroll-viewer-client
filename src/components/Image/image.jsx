@@ -6,6 +6,8 @@ import useClipboard from 'react-use-clipboard';
 import gql from 'graphql-tag';
 import { Spinner } from 'react-rainbow-components';
 import { useToasts } from 'react-toast-notifications';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
 import ErrorComponent from '../ErrorComponent';
 
@@ -26,7 +28,7 @@ query GetImageQuery($id: String!) {
 `
 
 const Image = (props) => {
-    const image_from_parent = props.location.state.image;
+    const image_from_parent = props.location.state?.image;
     const [{ image, loading, error }, setState] = useState({
         image: null,
         loading: true,
@@ -37,6 +39,7 @@ const Image = (props) => {
     const { addToast } = useToasts();
 
     useEffect(() => {
+        console.log(image_from_parent);
         if(image_from_parent){
             setState(({
                     image:image_from_parent,
@@ -68,7 +71,6 @@ const Image = (props) => {
     }, [])
 
     const saveImage = (url) => {
-        const name = url.slice(url.lastIndexOf('/'));
         FileSaver.saveAs(url, getFileName(url));
     }
 
@@ -76,20 +78,19 @@ const Image = (props) => {
         return link.slice(link.lastIndexOf('/')+1,link.indexOf('?'));
     }
 
-    const copyToClipboard = async () => {
-        
-        /*setCopied();
+    const copyToClipboard = async () => {  
+        setCopied();
         addToast("Copied to clipboard!", {
             appearance: 'info',
             autoDismiss: true,
-          })*/
-          console.log(navigator !== undefined)
-          console.log(navigator.canShare());
-          //await navigator.share({image: image.urls.full});
+          })
     }
+
     return (<div className="Image animated">
 
-        <button className="red_button" onClick={() => props.history.push('/')}>Go back</button>
+        <button className="red_button" onClick={() => props.history.push('/')}>
+            <FontAwesomeIcon icon={faArrowLeft}/> Go back
+        </button>
 
         { error ? <ErrorComponent /> :
             loading ? <Spinner size="x-large" style={{ width: `150px`, height: `150px` }} /> :
