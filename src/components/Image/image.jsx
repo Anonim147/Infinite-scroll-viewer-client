@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 import { Spinner } from 'react-rainbow-components';
 import { useToasts } from 'react-toast-notifications';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft} from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import ErrorComponent from '../ErrorComponent';
 
@@ -39,27 +39,25 @@ const Image = (props) => {
     const { addToast } = useToasts();
 
     useEffect(() => {
-        console.log(image_from_parent);
-        if(image_from_parent){
+        if (image_from_parent) {
             setState(({
-                    image:image_from_parent,
-                    loading:false,
-                    error:null
-                }));
+                image: image_from_parent,
+                loading: false,
+                error: null
+            }));
         }
-        else{
+        else {
             props.client.query({
                 query: GET_IMAGE_QUERY,
                 variables: { id }
             })
                 .then(res => {
-                    console.log(res.data.image);
-                    setState((prev)=>({
+                    setState((prev) => ({
                         image: res.data.image,
                         loading: false,
                         error: null
                     }));
-                    
+
                 })
                 .catch(e => setState({
                     image: null,
@@ -67,7 +65,7 @@ const Image = (props) => {
                     error: e.toString()
                 }))
         }
-        
+
     }, [])
 
     const saveImage = (url) => {
@@ -75,10 +73,10 @@ const Image = (props) => {
     }
 
     const getFileName = (link) => {
-        return link.slice(link.lastIndexOf('/')+1,link.indexOf('?'));
+        return link.slice(link.lastIndexOf('/') + 1, link.indexOf('?'));
     }
 
-    const copyToClipboard = async () => {  
+    const copyToClipboard = async () => {
         setCopied();
         addToast("Copied to clipboard!", {
             appearance: 'info',
@@ -89,7 +87,7 @@ const Image = (props) => {
     return (<div className="Image animated">
 
         <button className="red_button" onClick={() => props.history.push('/')}>
-            <FontAwesomeIcon icon={faArrowLeft}/> Go back
+            <FontAwesomeIcon icon={faArrowLeft} /> Go back
         </button>
 
         { error ? <ErrorComponent /> :

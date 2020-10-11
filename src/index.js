@@ -10,7 +10,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ToastProvider } from 'react-toast-notifications';
 
 const httpLink = createHttpLink({
-  uri:'http://localhost:4000'
+  uri: 'http://localhost:4000'
 });
 
 const client = new ApolloClient({
@@ -20,17 +20,16 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <React.StrictMode>
-
     <ApolloProvider client={client}>
-    <BrowserRouter>
-    <ToastProvider
-    autoDismiss
-    autoDismissTimeout={3000}
-    placement="bottom-right"
-  >
-      <App />
-      </ToastProvider>
-    </BrowserRouter>
+      <BrowserRouter>
+        <ToastProvider
+          autoDismiss
+          autoDismissTimeout={3000}
+          placement="bottom-right"
+        >
+          <App />
+        </ToastProvider>
+      </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')

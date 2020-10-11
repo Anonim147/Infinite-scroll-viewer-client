@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { withApollo } from "react-apollo";
 import gql from 'graphql-tag';
 import { Spinner } from 'react-rainbow-components';
@@ -8,8 +8,10 @@ import Images from '../Images';
 
 import './main-content.scss';
 import ErrorComponent from '../ErrorComponent';
-
+import { MainContentContext } from './main-content-reducer';
+import { SET_QUERY, SET_PAGES, SET_ERROR, SET_IMAGES } from './main-content-types';
 import './main-content.scss';
+import image from '../Image/image';
 
 const GET_IMAGES_QUERY = gql`
 query GetImagesQuery($page:Int, $query:String) {
@@ -30,13 +32,9 @@ query GetImagesQuery($page:Int, $query:String) {
 `
 
 const MainContent = (props) => {
-    const [{ page, query, images, error, loading }, setParams] = useState({
-        page: 1,
-        query: "",
-        images: [],
-        error: null,
-        loading: true
-    })
+
+    const { state, dispatch } = useContext(MainContentContext);
+    const { page, query, images, error, loading } = state;
 
     const getImages = (page, query) => {
         props.client.query({
@@ -44,49 +42,48 @@ const MainContent = (props) => {
             variables: { page, query }
         })
             .then(res => {
-                setParams((prev) => ({
-                    ...prev,
-                    loading: false,
-                    images: prev.images.concat(res.data.images)
-                }));
+                dispatch({
+                    type:SET_IMAGES,
+                    payload: {
+                        images: res.data.images
+                    }
+                });
             })
-            .catch(e =>
-                setParams((prev) => ({
-                    ...prev,
-                    loading: false,
-                    error: e.toString()
-                })));
+            .catch(e =>{
+                dispatch({
+                    type:SET_ERROR,
+                    payload: {error: e.toString()}
+                });
+            });
     }
 
     const scrollHandler = ({ currentTarget }) => {
         if (currentTarget.scrollTop + currentTarget.clientHeight + 50 >= currentTarget.scrollHeight) {
-            setParams((prev) => ({
-                ...prev,
-                page: prev.page + 1,
-                query: prev.query
-            }));
+            dispatch({
+                type: SET_PAGES,
+                payload: { page:page + 1 }
+            })
         }
     }
 
     const changeHandler = (query) => {
-        console.log(`query:${query}`);
-        setParams({
-            page: 1,
-            query,
-            images: [],
-            error: null,
-            loading: true
-        });
+        dispatch({
+            type:SET_QUERY,
+            payload:{
+                query:query
+            }
+        })
     }
 
     useEffect(() => {
+        console.log('UseEffect');
+
         getImages(page, query);
     }, [page, query]);
 
-
     return (
         <div className="MainContent">
-            <SearchBar changeHandler={changeHandler} />
+            <SearchBar changeHandler={changeHandler} searchValue={query}/>
             {
                 loading
                     ? <Spinner size="x-large" style={{ width: `150px`, height: `150px` }} />

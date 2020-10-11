@@ -1,9 +1,4 @@
-$lime: #47B39D;
-$orange: #EB6B56;
-$yellow: #FFC153;
-$red: #B05F6D;
-$violet:#462446;
-$white:#fff;
+@import "./../../App";
 
 .Image {
     overflow-y: scroll;
@@ -12,7 +7,7 @@ $white:#fff;
     width: 80%;
     height: 100%;
     width: 90%;
-    margin-top: 4.5rem;
+    margin-top: 72px;
 
     &>button {
         width: 120px;

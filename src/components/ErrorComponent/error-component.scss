@@ -1,3 +1,5 @@
+@import './../../App.scss';
+
 .ErrorComponent {
     height: 100%;
     display: flex;
@@ -14,14 +16,14 @@
 
     .text_container {
         h2 {
-            color: #ffa806;
+            color: $yellow;
             margin: 10px 10px 5px 10px;
         }
 
         p {
             text-align: center;
             margin: 0;
-            color: #7e7e7e;
+            color: $grey;
         }
     }
 

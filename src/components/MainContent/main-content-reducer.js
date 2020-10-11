@@ -1,40 +1,46 @@
-export const SET_QUERY = 'SET_QUERY';
-export const SET_ERROR = 'SET_ERROR';
-export const SET_IMAGES = 'SET_IMAGES';
-export const SET_PAGES = 'SET_PAGES';
+import React from 'react';
 
+import { SET_INITIAL_STATE, SET_ERROR, SET_PAGES, SET_IMAGES, SET_QUERY } from './main-content-types';
+
+export const MainContentContext = React.createContext({});
 
 export const initialState = {
-    page:1,
-    query:'',
-    images:[],
-    error:null,
-    loading:true
+    page: 1,
+    query: '',
+    images: [],
+    error: null,
+    loading: true
 };
 
 export const mainContentReducer = (state, action) => {
-    switch(action.type){
-        case SET_QUERY : 
+    switch (action.type) {
+        case SET_INITIAL_STATE:
+            return initialState
+        case SET_QUERY:
             return {
-                ...state,
-                query: action.payload.query
+                page: 1,
+                images: [],
+                query: action.payload.query,
+                error: null,
+                loading: true
             }
-        case SET_ERROR : 
+        case SET_ERROR:
             return {
                 ...state,
                 loading: false,
                 error: action.payload.error.toString()
             }
-        case SET_IMAGES : 
+        case SET_IMAGES:
             return {
                 ...state,
-                loading:false,
-                images:state.images.concat(action.payload.images)
+                loading: false,
+                images: state.images.concat(action.payload.images)
             }
         case SET_PAGES:
             return {
                 ...state,
-                page:action.payload.pahe
+                page: action.payload.page,
+                query: state.query
             }
         default:
             return state;

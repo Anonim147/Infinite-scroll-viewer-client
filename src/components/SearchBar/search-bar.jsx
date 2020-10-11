@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 import './search-bar.scss';
 
 const SearchBar = (props) => {
-    const[searchValue, setSearchValue] = useState('');
+    const[searchValue, setSearchValue] = useState(props.searchValue);
+
+    useEffect(()=>{
+        setSearchValue(props.searchValue);
+    }, [props.searchValue]);
     return (
 
         <div className="SearchBar animated">

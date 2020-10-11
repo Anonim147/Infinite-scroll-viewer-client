@@ -1,9 +1,4 @@
-$lime: #47B39D;
-$orange: #EB6B56;
-$yellow: #FFC153;
-$red: #B05F6D;
-$violet:#462446;
-$white:#fff;
+@import "./../../App";
 
 .Footer {
     position: fixed;
@@ -31,7 +26,7 @@ $white:#fff;
             margin: 4px;
             color: $lime;
             &:hover{
-                color: #7e7e7e;
+                color: $grey;
             }
             transition: all ease 0.5s;
         }

@@ -1,23 +1,23 @@
-$yellow: #FFC153;
+@import "./../../App";
 
 .SearchBar{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0.5rem 0rem 0.5rem 0rem;
+    margin: 8px 0px 8px 0px;
     z-index: 1;
 
     input{
         border: none;
         border-radius: 10px;
         margin: 2px;
-        height: 2rem;
+        height: 32px;
         transition: all ease 0.5s;
     }
 
     input[type="text"]{
         background: linear-gradient($yellow,$yellow) center bottom  2px/100% 1px no-repeat;
-        background-color: #fff;
+        background-color: $white;
         padding: 2px;
     }
 
@@ -26,7 +26,7 @@ $yellow: #FFC153;
         border: none;
         border-radius: 10px;
         ::placeholder{
-            color: #7e7e7e;
+            color: $grey;
         }
     }
 
@@ -34,9 +34,9 @@ $yellow: #FFC153;
         width: 150px;
 
         &:disabled{
-            color: #7e7e7e;
+            color: $grey;
             &:hover{
-                background-color: #fff;
+                background-color: $white;
             }
         }
     }
